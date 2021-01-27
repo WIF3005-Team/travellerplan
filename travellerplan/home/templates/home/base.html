@@ -27,7 +27,7 @@
                     <a class="nav-item nav-link" href="#">Recommendation</a>
                     <a class="nav-item nav-link" href="#">Logout</a>
                     {% else %}
-                    <a class="nav-item nav-link" href="#">Register</a>
+                    <a class="nav-item nav-link {% if nav == 'register' %}active{% endif %}" href="{% url 'register' %}">Register</a>
                     <a class="nav-item nav-link" href="#">Login</a>
                     {% endif %}
                 </div>
