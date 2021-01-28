@@ -1,0 +1,13 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block title %}
+<title>Location</title>
+{% endblock title%}
+{% block home %}
+{% if result %}
+{% else %}
+<div class="alert alert-warning">
+    Error retrieving from database, please try again later or restart the database.
+</div>
+{% endif %}
+{% endblock home %}
