@@ -5,41 +5,71 @@
 {% endblock title%}
 {% block home %}
 {% if result %}
-<div>
-    Weather in {{result.region}} as of {{result.dayhour}}
-    <br>
-    Temperature: {{result.temp_now}} &#8451;
-    <br>
-    Description: {{result.weather_now}}
-    <br>
-    Precipitation: {{result.precipitation}}
-    <br>
-    Humidity: {{result.humidity}}
-    <br>
-    Wind: {{result.wind}}
-    <br>
-    <table class="table">
-        <thead>
-          <tr>
-            {% for item in result.next_days%}
-            <th scope="col" style="width: 12.5%; text-align: center;">{{item.name}}</th>
-            {% endfor %}
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            {% for item in result.next_days%}
-            <td style="width: 12.5%; text-align: center;">{{item.weather}}</td>
-            {% endfor %}
-          </tr>
-          <tr>
-            {% for item in result.next_days%}
-            <td style="width: 12.5%; text-align: center;"><span style="color: grey;">{{item.max_temp}} &#8451</span> | <span style="color: black;">{{item.min_temp}} &#8451</span></td>
-            {% endfor %}
-          </tr>
-        </tbody>
-      </table>
+
+<div class="container-fluid py-5"
+     style="background-image: url({% static 'home/weather.jpg' %});
+     min-height: 850px;
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     margin-top: 50px;">
+
+    <div class="container-fluid"
+         style="display: flex;
+                justify-content: center;
+                flex-direction: row; padding-top: 5%;">
+
+        <div class="card" style="width: 20rem; padding:  2%;">
+            <div class="card-body">
+
+                <h3 class="card-title text-center">Kuala Lumpur</h3>
+                <p class="card-text">
+                    <br>
+                    Temperature: {{result.temp_now}} &#8451;
+                    <br>
+                    Description: {{result.weather_now}}
+                    <br>
+                    Precipitation: {{result.precipitation}}
+                    <br>
+                    Humidity: {{result.humidity}}
+                    <br>
+                    Wind: {{result.wind}}
+                    <br>
+
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+        <div class="container" style="padding-top: 5%;">
+
+            <table class="table table-responsive table-bordered table-striped table-light">
+            <thead class="thead-dark">
+              <tr>
+                {% for item in result.next_days%}
+                <th scope="col" style="width: 12.5%; text-align: center;">{{item.name}}</th>
+                {% endfor %}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                {% for item in result.next_days%}
+                <td style="width: 12.5%; text-align: center;">{{item.weather}}</td>
+                {% endfor %}
+              </tr>
+              <tr>
+                {% for item in result.next_days%}
+                <td style="width: 12.5%; text-align: center;"><span style="color: grey;">{{item.max_temp}} &#8451</span> | <span style="color: black;">{{item.min_temp}} &#8451</span></td>
+                {% endfor %}
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
 </div>
+
+
 {% else %}
 <div class="alert alert-warning">
     Error retrieving from database, please try again later or restart the database.

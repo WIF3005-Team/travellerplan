@@ -4,19 +4,140 @@
 <title>TravellerPlan</title>
 {% endblock title%}
 {% block home %}
-<header style="height: 100vh;
-min-height: 500px;
-background-image: url({% static 'home/header.jpg' %});
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-box-shadow:inset 0 0 0 2000px rgba(250, 190, 88, 0.3);">
-    <div class="container h-100">
-        <div class="row h-100 align-items-center">
-          <div class="col-12 text-center">
-            <h1 class="font-weight-heavy" style="color:white">Welcome {{ user.username }}!</h1>
-          </div>
-        </div>
-      </div>
-</header>
+
+<div class="container-fluid py-5"
+     style="background-image: url({% static 'home/dashboard.jpg' %});
+     min-height: 850px;
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     margin-top: 50px;">
+
+  <h1 class="display-2" style="color: white; text-align: center; padding-top: 1%; padding-bottom: 3%;">Welcome {{ user.username }}!</h1>
+
+  <div class="card-deck">
+    <div class="card bg-light">
+    <div class="card-body">
+      <h4 class="card-title">Planner</h4>
+      <p class="card-text">Descripiton of planner</p>
+      <a href="#" class="btn btn-outline-dark">Start Planning</a>
+    </div>
+  </div>
+
+  <div class="card bg-light">
+    <div class="card-body">
+      <h4 class="card-title">To Do List</h4>
+      <p class="card-text">Descripiton of to do list</p>
+      <a href="#" class="btn btn-outline-dark">Check To Do List</a>
+    </div>
+  </div>
+
+  <div class="card bg-light">
+    <div class="card-body">
+      <h4 class="card-title">Weather</h4>
+      <p class="card-text">Descripiton of weather</p>
+      <a href="{% url 'weather' %}" class="btn btn-outline-dark">Check Weather</a>
+    </div>
+  </div>
+
+  <div class="card bg-light">
+    <div class="card-body">
+      <h4 class="card-title">Recommendation</h4>
+      <p class="card-text">Descripiton of recommendation</p>
+      <a href="#" class="btn btn-outline-dark">See Recommendations</a>
+    </div>
+  </div>
+
+  </div>
+
+</div>
+
+
+
+<!--<header style="height: 50vh;-->
+<!--               background-image: url({% static 'home/dashboard.jpg' %});-->
+<!--               background-size: cover;-->
+<!--               background-position: center;-->
+<!--               background-repeat: no-repeat;">-->
+
+<!--    <div class="container h-100">-->
+<!--        <div class="row h-100 align-items-center">-->
+<!--          <div class="col-12 text-center">-->
+
+<!--            <h1 class="font-weight-HEAVY" style="color:white">Welcome {{ user.username }}!</h1>-->
+<!--          </div>-->
+
+<!--        </div>-->
+<!--      </div>-->
+
+<!--</header>-->
+
+<!--<div class="jumbotron bg-light">-->
+<!--    <div class="container text-center">-->
+
+<!--      <h1 style="color:rgb(231, 76, 60)">Features</h1>-->
+<!--      <hr style="border-color:rgb(231, 76, 60)" width="10%">-->
+
+<!--      <section class="page-section" id="services">-->
+
+<!--        <div class="container">-->
+<!--          <div class="row">-->
+<!--            <div class="col-lg-4 col-md-8 text-center">-->
+<!--              <div class="mt-5">-->
+<!--                &lt;!&ndash; //BUG add font awesome icon calender &ndash;&gt;-->
+<!--                <h3 class="h4 mb-2" style="color:rgb(231, 76, 60)">Travel Planner</h3>-->
+<!--                <p class="text-muted mb-0">-->
+<!--                  Plan your trip with us!-->
+<!--                </p>-->
+
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 col-md-8 text-center">-->
+<!--              <div class="mt-5">-->
+<!--                &lt;!&ndash; //BUG add font awesome icon weather &ndash;&gt;-->
+<!--                <h3 class="h4 mb-2" style="color:rgb(231, 76, 60)">Weather Forecast</h3>-->
+<!--                <p class="text-muted mb-0">-->
+<!--                  Provides you with the weather forecast in KL.-->
+<!--                </p>-->
+
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 col-md-8 text-center">-->
+<!--              <div class="mt-5">-->
+<!--                &lt;!&ndash; //BUG add font awesome icon location pin? &ndash;&gt;-->
+<!--                <h3 class="h4 mb-2" style="color:rgb(231, 76, 60)">Recommendation</h3>-->
+<!--                <p class="text-muted mb-0">-->
+<!--                  Recommends popular travel spots in KL.-->
+<!--                </p>-->
+
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+
+<!--      </section>-->
+
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div class="jumbotron" style="background-color:rgb(231, 76, 60);">-->
+<!--    <div class="container text-center">-->
+
+<!--      <h1 style="color:white">We've got what you need to explore Kuala Lumpur!</h1>-->
+<!--      <hr style="border-color:white" width="10%">      -->
+<!--      <p style="color:white">Join us and start to plan your trip with us today!</p>-->
+
+<!--    </div>-->
+
+<!--    <div class="container">-->
+<!--        <div class="row">-->
+<!--          <div class="col text-center">-->
+
+<!--            <a class="btn btn-light" href="#" role="button"><span style="color:rgb(231, 76, 60);">Join us!</span></a>-->
+
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--</div>-->
+
 {% endblock home %}
