@@ -28,7 +28,7 @@
                     <a class="nav-item nav-link" href="#">Planner</a>
                     <a class="nav-item nav-link {% if nav == 'checklist' %}active{% endif %}" href="{% url 'checklist' %}">Checklist</a>
                     <a class="nav-item nav-link {% if nav == 'weather' %}active{% endif %}" href="{% url 'weather' %}">Weather</a>
-                    <a class="nav-item nav-link" href="#">Recommendation</a>
+                    <a class="nav-item nav-link {% if nav == 'location' %}active{% endif %}" href="{% url 'location' %}">Recommendation</a>
                     <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                     {% else %}
                     <a class="nav-item nav-link {% if nav == 'register' %}active{% endif %}" href="{% url 'register' %}">Register</a>
