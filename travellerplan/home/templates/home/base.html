@@ -25,6 +25,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="navbar-nav ml-auto">
                     {% if user.is_authenticated %}
+                    <a class="nav-item nav-link {% if nav == 'map' %}active{% endif %}" href="{% url 'map' %}">Map</a>
                     <a class="nav-item nav-link {% if nav == 'checklist' %}active{% endif %}" href="{% url 'checklist' %}">Checklist</a>
                     <a class="nav-item nav-link {% if nav == 'weather' %}active{% endif %}" href="{% url 'weather' %}">Weather</a>
                     <a class="nav-item nav-link {% if nav == 'location' %}active{% endif %}" href="{% url 'location' %}">Recommendation</a>
@@ -58,6 +59,7 @@
         </footer>
 
         <!-- Optional JavaScript -->
+        {% block script %}{% endblock script %}
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
