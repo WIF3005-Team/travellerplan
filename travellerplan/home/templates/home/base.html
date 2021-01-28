@@ -13,7 +13,6 @@
     <body class="bg-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container">
-<!--                <a class="navbar-brand {% if nav != 'home' %}text-muted{% endif %}" href="{% url 'home' %}">TravellerPlan</a>-->
                 {% if user.is_authenticated %}
                 <a class="navbar-brand {% if nav != 'home' %}text-muted{% endif %}" href="{% url 'home' %}"><span style="color: grey;">Traveller</span><span style="color: black;">Plan</span></a>
                 {% else %}
@@ -27,10 +26,10 @@
                 <div class="navbar-nav ml-auto">
                     {% if user.is_authenticated %}
                     <a class="nav-item nav-link" href="#">Planner</a>
-                    <a class="nav-item nav-link" href="#">To Do List</a>
-                    <a class="nav-item nav-link" href="#">Weather</a>
+                    <a class="nav-item nav-link" href="#">Checklist</a>
+                    <a class="nav-item nav-link {% if nav == 'weather' %}active{% endif %}" href="{% url 'weather' %}">Weather</a>
                     <a class="nav-item nav-link" href="#">Recommendation</a>
-                    <a class="nav-item nav-link {% if nav == 'logout' %}active{% endif %}" href="{% url 'logout' %}">Logout</a>
+                    <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                     {% else %}
                     <a class="nav-item nav-link {% if nav == 'register' %}active{% endif %}" href="{% url 'register' %}">Register</a>
                     <a class="nav-item nav-link {% if nav == 'login' %}active{% endif %}" href="{% url 'login' %}">Login</a>
@@ -50,24 +49,11 @@
         {% endif %}
 
         {% block home %} {% endblock home %}
-        
-<!--        <div class="jumbotron jumbotron-fluid bg-light">-->
-<!--            <div class="container">-->
-<!--                {% if messages %}-->
-<!--                    {% for message in messages %}-->
-<!--                        <div class="alert alert-{{ message.tags }}">-->
-<!--                            {{ message }}-->
-<!--                        </div>-->
-<!--                    {% endfor %}-->
-<!--                {% endif %}-->
-<!--                {% block content %} {% endblock content %}-->
-<!--            </div>-->
-<!--        </div>-->
 
         <footer class="bg-light py-4">
             <div class="container">
-              <div class="small text-center text-muted" style="color:rgb(231, 76, 60);">
-                <span style="color: grey;">Copyright &copy; 2021 - TravellerPlan</span>
+              <div class="small text-center text-muted" style="color: dimgray;">
+                <span style="color: dimgray;">Copyright &copy; 2021 - TravellerPlan</span>
               </div>
             </div>
         </footer>
