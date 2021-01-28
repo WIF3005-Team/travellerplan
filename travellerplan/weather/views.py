@@ -48,5 +48,4 @@ def weather(request):
         next_days.append({"name": day_name, "weather": weather, "max_temp": max_temp, "min_temp": min_temp})
     # append to result
     result['next_days'] = next_days
-
     return render(request, 'weather/weather.html', {'nav':'weather','result':result})
