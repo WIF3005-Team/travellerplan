@@ -8,16 +8,16 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    
     {% block title %} {% endblock title %}
     </head>
     <body class="bg-light">
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container">
-                <a class="navbar-brand {% if nav != 'home' %}text-muted{% endif %}" href="{% url 'home' %}">TravellerPlan</a>
+                {% if user.is_authenticated %}
+                <a class="navbar-brand {% if nav != 'home' %}text-muted{% endif %}" href="{% url 'home' %}"><span style="color: grey;">Traveller</span><span style="color: black;">Plan</span></a>
+                {% else %}
+                <a class="navbar-brand {% if nav != 'home' %}text-muted{% endif %}" href="{% url 'homepage' %}"><span style="color: grey;">Traveller</span><span style="color: black;">Plan</span></a>
+                {% endif %}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -26,37 +26,34 @@
                 <div class="navbar-nav ml-auto">
                     {% if user.is_authenticated %}
                     <a class="nav-item nav-link" href="#">Planner</a>
-                    <a class="nav-item nav-link" href="#">To Do List</a>
-                    <a class="nav-item nav-link" href="#">Weather</a>
+                    <a class="nav-item nav-link" href="#">Checklist</a>
+                    <a class="nav-item nav-link {% if nav == 'weather' %}active{% endif %}" href="{% url 'weather' %}">Weather</a>
                     <a class="nav-item nav-link" href="#">Recommendation</a>
-                    <a class="nav-item nav-link" href="#">Logout</a>
+                    <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                     {% else %}
-                    <a class="nav-item nav-link" href="#">Register</a>
-                    <a class="nav-item nav-link" href="#">Login</a>
+                    <a class="nav-item nav-link {% if nav == 'register' %}active{% endif %}" href="{% url 'register' %}">Register</a>
+                    <a class="nav-item nav-link {% if nav == 'login' %}active{% endif %}" href="{% url 'login' %}">Login</a>
                     {% endif %}
                 </div>
             </div>
         </nav>
 
-        {% block home %} {% endblock home %}
-        
-        <div class="jumbotron jumbotron-fluid bg-light">
-            <div class="container">
-                {% if messages %}
-                    {% for message in messages %}
-                        <div class="alert alert-{{ message.tags }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                {% endif %}
-                {% block content %} {% endblock content %}
-            </div>
+        {% if messages %}
+        <div class="container">
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
         </div>
+        {% endif %}
 
-        <footer class="bg-light py-4">
+        {% block home %} {% endblock home %}
+
+        <footer class="bg-light">
             <div class="container">
-              <div class="small text-center text-muted" style="color:rgb(231, 76, 60);">
-                <span style="color:rgb(231, 76, 60);">Copyright &copy; 2021 - TravellerPlan</span>
+              <div class="small text-center text-muted" style="color:dimgray;">
+                <span style="color:dimgray;">Copyright &copy; 2021 - TravellerPlan</span>
               </div>
             </div>
         </footer>

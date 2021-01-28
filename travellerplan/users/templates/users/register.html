@@ -1,0 +1,62 @@
+{% extends "home/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+<title>Register</title>
+{% endblock title%}
+{% block home %}
+
+<!--<div class="container-fluid">-->
+
+    <div class="container-fluid py-5"
+         style="background-image: url({% static 'home/register.jpg' %});
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         margin-top: 50px;">
+
+        <div class="container bg-white"
+             style="border-radius: 30px;
+                    padding: 2%;
+                    min-width: 300px;
+                    min-height: 50px;
+                    width: 40%;
+                    height: 90%;">
+
+        <h1 style="text-align: center; font-size: 5vmin;">Create Account</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group"
+                      style="margin-left: auto;
+                             margin-right: auto;
+                             padding-top: 3%;
+                             width: 80%;
+                             height: 80%;">
+                <legend class="border-bottom">
+                </legend>
+                {{ form|crispy }}
+            </fieldset>
+
+            <div class="form-group" style="text-align: center; padding-bottom: 3%">
+
+                <button class="btn btn-outline-dark" style="width: 80%;" type="submit">Register</button>
+
+            </div>
+        </form>
+
+        <div class="border-top p-2" style="text-align: center;">
+
+            <small class="text-muted">
+                Already registered? <a class="ml-2" style="color: black;" href="#">Login</a>
+            </small>
+
+        </div>
+
+        </div>
+
+    </div>
+
+<!--</div>-->
+
+{% endblock home %}
