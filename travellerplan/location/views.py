@@ -6,5 +6,5 @@ import requests
 
 @login_required(login_url="login")
 def location(request):
-    result = {}
+    result = {1:1}
     return render(request, 'location/location.html', {'nav':'location','result':result})
