@@ -26,7 +26,7 @@
                 <div class="navbar-nav ml-auto">
                     {% if user.is_authenticated %}
                     <a class="nav-item nav-link" href="#">Planner</a>
-                    <a class="nav-item nav-link" href="#">Checklist</a>
+                    <a class="nav-item nav-link {% if nav == 'checklist' %}active{% endif %}" href="{% url 'checklist' %}">Checklist</a>
                     <a class="nav-item nav-link {% if nav == 'weather' %}active{% endif %}" href="{% url 'weather' %}">Weather</a>
                     <a class="nav-item nav-link" href="#">Recommendation</a>
                     <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
