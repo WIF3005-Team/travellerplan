@@ -1,14 +1,38 @@
 {% extends "home/base.html" %}
 {% block title %}
+{% load static %}
 <title>Logout</title>
 {% endblock title%}
 {% block home %}
 
-    <div class="content-section">
-        <h2>You have been logged out.</h2>
+<div class="container-fluid py-5"
+         style="background-image: url({% static 'home/logout.jpg' %});
+         min-height: 850px;
+         background-size: cover;
+         background-position: center;
+         background-repeat: no-repeat;
+         margin-top: 50px;">
+
+    <div class="container bg-white text-center"
+             style="border-radius: 30px;
+                    min-width: 300px;
+                    min-height: 50px;
+                    padding: 2%;
+                    margin-top: 10%;
+                    width: 30%;
+                    height: 90%;">
+
+        <h6 style="text-align: center; font-size: 5vmin; padding: 2%;">You are logged out</h6>
+
         <div class="border-top pt-3">
-            <small class="muted"><a href="{% url 'login' %}">Login again</a></small>
+
+            <p>You are logged out. To see your account, please log in. Dont have an account? Register to create one.</p>
+
+            <a href="{% url 'login' %}" class="btn btn-sm btn-block btn-dark">Login</a>
+            <a href="{% url 'register' %}" class="btn btn-sm btn-block btn-dark">Register</a>
+
         </div>
     </div>
+</div>
 
 {% endblock home %}
