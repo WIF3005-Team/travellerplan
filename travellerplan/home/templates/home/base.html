@@ -25,7 +25,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <div class="navbar-nav ml-auto">
                     {% if user.is_authenticated %}
-                    <a class="nav-item nav-link" href="#">Planner</a>
+                    <a class="nav-item nav-link {% if nav == 'planner' %}active{% endif %}" href="{% url 'planner' %}">Planner</a>
                     <a class="nav-item nav-link {% if nav == 'checklist' %}active{% endif %}" href="{% url 'checklist' %}">Checklist</a>
                     <a class="nav-item nav-link {% if nav == 'weather' %}active{% endif %}" href="{% url 'weather' %}">Weather</a>
                     <a class="nav-item nav-link {% if nav == 'location' %}active{% endif %}" href="{% url 'location' %}">Recommendation</a>
