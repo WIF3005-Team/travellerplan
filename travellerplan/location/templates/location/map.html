@@ -1,0 +1,99 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block title %}
+<title>Places of Interest</title>
+<style>
+    #map{
+      height:400px;
+      width:800px;
+    }
+</style>
+{% endblock title%}
+{% block home %}
+{% if result %}
+<div class="container-fluid py-5"
+     style="background-image: url({% static 'home/weather.jpg' %});
+     min-height: 850px;
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     margin-top: 50px;">
+     <h1 style="text-align: center; color: white;">Places of Interest</h1>
+    <div class="container-fluid"
+         style="display: flex;
+                justify-content: center;
+                flex-direction: row; padding-top: 5%;">
+    <div id="map"></div>
+    </div>
+</div>
+{% else %}
+<div class="alert alert-warning">
+    Error retrieving from database, please try again later or restart the database.
+</div>
+{% endif %}
+{% endblock home %}
+
+{% block script %}
+
+<script>
+    function initMap(){
+      // Map settings
+      var options = {
+        zoom:11,
+        center:{lat:3.1390,lng:101.6869}
+      }
+
+      // New map
+      var map = new google.maps.Map(document.getElementById('map'), options);
+
+      // Array of markers
+      var markers = [
+        {
+          coords:{lat:3.1528,lng:101.7038},
+          content:'<h1>KL Tower</h1><br><p>The Kuala Lumpur Tower is a communications tower features an antenna that increases its height to 421 metres and is the 7th tallest freestanding tower in the world.</p>'
+        },
+        {
+          coords:{lat:3.1579,lng:101.7120},
+          content:'<h1>KLCC</h1><p>Kuala Lumpur’s dynamic, high-rise City Centre is known for upscale fashion malls, luxury hotels and expansive views from the futuristic Petronas Twin Towers.</p>'
+        },
+        {
+          coords:{lat:3.1488,lng:101.6937},
+          content:'<h1>Merdeka Square</h1><p>It was formerly known as the Selangor Club Padang or simply the "Padang" and was used as the cricket green of the Selangor Club</p>'
+        },
+        {
+          coords:{lat:3.2379,lng:101.6840},
+          content:'<h1>Batu Caves</h1><p>Batu Caves is a limestone hill that has a series of caves and cave temples</p>'
+        }
+      ];
+
+      // Loop through markers
+      for(var i = 0;i < markers.length;i++){
+        // Add marker
+        addMarker(markers[i]);
+      }
+
+      // Add Marker Function
+      function addMarker(props){
+        var marker = new google.maps.Marker({
+          position:props.coords,
+          map:map,
+        });
+
+        // Check marker's content
+        if(props.content){
+          var infoWindow = new google.maps.InfoWindow({
+            content:props.content
+          });
+
+          marker.addListener('click', function(){
+            infoWindow.open(map, marker);
+          });
+        }
+      }
+    }
+  </script>
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB6GXN792A9uZEvD8r6xGEnXQGhew3GphA&callback=initMap">
+    </script>
+
+{% endblock script %}

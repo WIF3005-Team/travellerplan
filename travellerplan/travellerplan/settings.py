@@ -27,6 +27,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 # Application definition
 
@@ -39,6 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'users.apps.UsersConfig',
+    'weather.apps.WeatherConfig',
+    'checklist.apps.ChecklistConfig',
+    'location.apps.LocationConfig',
     'crispy_forms',
 ]
 
@@ -71,6 +77,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'travellerplan.wsgi.application'
+
+SESSION_COOKIE_AGE = 60 * 5
 
 SESSION_SAVE_EVERY_REQUEST = True
 
