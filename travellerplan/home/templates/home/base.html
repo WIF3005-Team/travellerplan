@@ -14,9 +14,9 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
             <div class="container">
                 {% if user.is_authenticated %}
-                <a class="navbar-brand {% if nav != 'home' %}text-muted{% endif %}" href="{% url 'home' %}">TravellerPlan</a>
+                <a class="navbar-brand {% if nav != 'home' %}text-muted{% endif %}" href="{% url 'home' %}"><span style="color: grey;">Traveller</span><span style="color: black;">Plan</span></a>
                 {% else %}
-                <a class="navbar-brand {% if nav != 'home' %}text-muted{% endif %}" href="{% url 'homepage' %}">TravellerPlan</a>
+                <a class="navbar-brand {% if nav != 'home' %}text-muted{% endif %}" href="{% url 'homepage' %}"><span style="color: grey;">Traveller</span><span style="color: black;">Plan</span></a>
                 {% endif %}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@
                     {% if user.is_authenticated %}
                     <a class="nav-item nav-link" href="#">Planner</a>
                     <a class="nav-item nav-link" href="#">Checklist</a>
-                    <a class="nav-item nav-link" href="#">Weather</a>
+                    <a class="nav-item nav-link {% if nav == 'weather' %}active{% endif %}" href="{% url 'weather' %}">Weather</a>
                     <a class="nav-item nav-link" href="#">Recommendation</a>
                     <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
                     {% else %}
@@ -52,8 +52,8 @@
 
         <footer class="bg-light">
             <div class="container">
-              <div class="small text-center text-muted" style="color:rgb(231, 76, 60);">
-                <span style="color:rgb(231, 76, 60);">Copyright &copy; 2021 - TravellerPlan</span>
+              <div class="small text-center text-muted" style="color:dimgray;">
+                <span style="color:dimgray;">Copyright &copy; 2021 - TravellerPlan</span>
               </div>
             </div>
         </footer>
