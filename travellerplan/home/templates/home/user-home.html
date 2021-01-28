@@ -15,29 +15,30 @@
 
   <h1 class="display-2" style="color: white; text-align: center; padding-top: 1%; padding-bottom: 3%;">Welcome {{ user.username }}!</h1>
 
-  <div class="card bg-light">
-    <div class="card-body">
-      <h4 class="card-title">To Do List</h4>
-      <p class="card-text">Descripiton of to do list</p>
-      <a href="{% url 'checklist' %}" class="btn btn-outline-dark">Check To Do List</a>
+  <div class="card-deck">
+    <div class="card bg-light">
+      <div class="card-body">
+        <h4 class="card-title">To Do List</h4>
+        <p class="card-text">Descripiton of to do list</p>
+        <a href="{% url 'checklist' %}" class="btn btn-outline-dark">Check To Do List</a>
+      </div>
     </div>
-  </div>
 
-  <div class="card bg-light">
-    <div class="card-body">
-      <h4 class="card-title">Weather</h4>
-      <p class="card-text">Descripiton of weather</p>
-      <a href="{% url 'weather' %}" class="btn btn-outline-dark">Check Weather</a>
+    <div class="card bg-light">
+      <div class="card-body">
+        <h4 class="card-title">Weather</h4>
+        <p class="card-text">Descripiton of weather</p>
+        <a href="{% url 'weather' %}" class="btn btn-outline-dark">Check Weather</a>
+      </div>
     </div>
-  </div>
 
-  <div class="card bg-light">
-    <div class="card-body">
-      <h4 class="card-title">Recommendation</h4>
-      <p class="card-text">Descripiton of recommendation</p>
-      <a href="{% url 'location' %}" class="btn btn-outline-dark">See Recommendations</a>
+    <div class="card bg-light">
+      <div class="card-body">
+        <h4 class="card-title">Recommendation</h4>
+        <p class="card-text">Descripiton of recommendation</p>
+        <a href="{% url 'location' %}" class="btn btn-outline-dark">See Recommendations</a>
+      </div>
     </div>
-  </div>
 
   </div>
 
