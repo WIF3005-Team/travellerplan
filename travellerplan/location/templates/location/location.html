@@ -1,0 +1,83 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% block title %}
+<title>Location</title>
+{% endblock title%}
+{% block home %}
+{% if result %}
+<div class="container-fluid py-5"
+     style="background-image: url({% static 'home/weather.jpg' %});
+     min-height: 850px;
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     margin-top: 50px;">
+
+    <div class="container-fluid"
+         style="display: flex;
+                justify-content: center;
+                flex-direction: row; padding-top: 5%;">
+
+        <div class="card-deck">
+            <div class="card bg-light">
+            <img class="card-img-top" src="{% static 'home/market.jpg' %}" alt="card guide">
+            <div class="card-body">
+            <h4 class="card-title">Markets</h4>
+            <p class="card-text">Markets are a cornerstone of daily life in Kuala Lumpur, and locals head to them to find everything from colorful textiles to seafood and just-ground spices. These lively bazaars exemplify the city's traditional side, offering an alternative to modern malls.</p>
+            <a href="https://www.google.com/travel/things-to-do/highlight?highlight_id=cc44a75ec0411381&dest_mid=/m/049d1&dest_state_type=sa&dest_src=ts" class="btn btn-outline-dark">Go!</a>
+            </div>
+        </div>
+
+            <div class="card bg-light">
+            <img class="card-img-top" src="{% static 'home/street.jpg' %}" alt="card guide">
+            <div class="card-body">
+            <h4 class="card-title">Street food</h4>
+            <p class="card-text">Popular street food stalls reflect Malaysia's multicultural heritage, drawing on Malay, Indian, and Chinese cuisines. You can find every type of meal on the street, from a filling on-the-go breakfast to a late-night snack.</p>
+            <a href="https://www.google.com/travel/things-to-do/highlight?highlight_id=7bf4062b9bb0cca2&dest_mid=/m/049d1&dest_state_type=sa&dest_src=ts" class="btn btn-outline-dark">Go!</a>
+            </div>
+        </div>
+
+            <div class="card bg-light">
+            <img class="card-img-top" src="{% static 'home/night.jpg' %}" alt="card guide">
+            <div class="card-body">
+            <h4 class="card-title">Nightlife</h4>
+            <p class="card-text">Kuala Lumpur's nightlife is as diverse as its culture, so there are plenty of spots for both laidback hangouts and late-night revelry. Rooftop bars and terrace cafes make the most of the cooler evening weather, and swanky nightclubs host big-name DJs.</p>
+            <a href="https://www.google.com/travel/things-to-do/highlight?highlight_id=d9b37f40b013a3f6&dest_mid=/m/049d1&dest_state_type=sa&dest_src=ts" class="btn btn-outline-dark">Go!</a>
+            </div>
+        </div>
+
+            <div class="card bg-light">
+            <img class="card-img-top" src="{% static 'home/museum.jpg' %}" alt="card guide">
+            <div class="card-body">
+            <h4 class="card-title">Museum</h4>
+            <p class="card-text">The city's many museums document Malaysia's long history, from prehistoric times to the influence of Islamic rule and British colonization. They're also treasure troves of Malaysian cultural traditions, such as handmade textiles and indigenous crafts.</p>
+            <a href="https://www.google.com/travel/things-to-do/highlight?highlight_id=98ae1eb92ed16a10&dest_mid=/m/049d1&dest_state_type=sa&dest_src=ts" class="btn btn-outline-dark">Go!</a>
+            </div>
+        </div>
+
+        </div>
+    </div>
+    <div class="container-fluid"
+         style="display: flex;
+                justify-content: center;
+                flex-direction: row; padding-top: 5%;">
+
+        <div class="card-deck">
+            <div class="card bg-light">
+            <img class="card-img-top" src="{% static 'home/header.jpg' %}" alt="card guide">
+            <div class="card-body">
+            <h4 class="card-title">More things to do in Kuala Lumpur</h4>
+            <p class="card-text">The city with Petronas Twin Towers skyscrapers, also known for shopping, dining & colonial architecture.</p>
+            <a href="https://www.google.com/travel/things-to-do?g2lb=2502548%2C2503780%2C4258168%2C4270442%2C4306835%2C4317915%2C4328159%2C4371334%2C4401769%2C4419364%2C4463263%2C4463666%2C4482194%2C4482438%2C4486153%2C4491350%2C4491875%2C4495816%2C4496478%2C4270859%2C4284970%2C4291517&hl=en-MY&gl=my&cs=1&un=1&dest_mid=%2Fm%2F049d1&dest_state_type=main&dest_src=ts&sa=X&ved=2ahUKEwipkqLF9L3uAhXs4zgGHW1lD5IQuL0BMAF6BAgMEDw#ttdm=3.120431_101.660058_11&ttdmf=%252Fm%252F02nzk8" class="btn btn-outline-dark">More places!</a>
+            </div>
+        </div>
+
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="alert alert-warning">
+    Error retrieving from database, please try again later or restart the database.
+</div>
+{% endif %}
+{% endblock home %}

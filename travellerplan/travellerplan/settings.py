@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'weather.apps.WeatherConfig',
     'checklist.apps.ChecklistConfig',
+    'location.apps.LocationConfig',
+    'planner.apps.PlannerConfig',
     'crispy_forms',
 ]
 
@@ -76,6 +78,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'travellerplan.wsgi.application'
+
+SESSION_COOKIE_AGE = 60 * 5
 
 SESSION_SAVE_EVERY_REQUEST = True
 
