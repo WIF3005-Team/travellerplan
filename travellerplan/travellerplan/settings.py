@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'weather.apps.WeatherConfig',
     'checklist.apps.ChecklistConfig',
     'location.apps.LocationConfig',
-    'planner.apps.PlannerConfig',
     'crispy_forms',
 ]
 
