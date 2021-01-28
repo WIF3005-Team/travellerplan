@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'users.apps.UsersConfig',
     'weather.apps.WeatherConfig',
+    'checklist.apps.ChecklistConfig',
     'crispy_forms',
 ]
 
