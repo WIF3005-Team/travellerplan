@@ -23,4 +23,5 @@ urlpatterns = [
     path('', include('weather.urls')),
     path('', include('checklist.urls')),
     path('', include('location.urls')),
+    path('', include('planner.urls')),
 ]
